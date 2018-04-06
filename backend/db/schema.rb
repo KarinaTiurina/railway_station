@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 20180406065300) do
     t.string "full_name"
     t.date "birth"
     t.string "phone"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_humen_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
     t.string "role"
+    t.bigint "human_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["human_id"], name: "index_users_on_human_id"
   end
 
-  add_foreign_key "humen", "users"
+  add_foreign_key "users", "humen"
 end

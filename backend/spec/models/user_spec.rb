@@ -8,6 +8,6 @@ RSpec.describe User, type: :model do
   end
 
   context 'references check' do
-    it { should have_one :human }
+    it { should belong_to :human }
   end
 end

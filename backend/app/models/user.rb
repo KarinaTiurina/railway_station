@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :human
+  belongs_to :human
 
   validates :email, presence: true
   validates :password, presence: true
